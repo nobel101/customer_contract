@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="customer_contract_list_view" model="ir.ui.view">
+        <field name="name">customer_contract.customer_contract_list_view</field>
+        <field name="model">customer.contract</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Contracts">
+                <field name="partner_id" widget="res_partner_many2one"
+                       context="{'res_partner_search_mode': 'customer'}"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="last_status_changer"/>
+                <field name="price"/>
+                <field name="avg_day_price"/>
+                <field name="status" widget="badge" decoration-info="status == 'draft'"
+                       decoration-success="status == 'confirm'" optional="show"/>
+            </tree>
+        </field>
+    </record>
+    <record id="customer_contract_form_view" model="ir.ui.view">
+        <field name="name">customer_contract.form_view</field>
+        <field name="model">customer.contract</field>
+        <field name="arch" type="xml">
+            <form string="Customer Contract">
+                <header>
+                    <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group name="info" string="Basic Information">
+                            <field name="partner_id" widget="res_partner_many2one"
+                                   context="{'res_partner_search_mode': 'customer'}"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="last_status_changer"/>
+
+                        </group>
+                        <group name="price" string="Pricing">
+                            <field name="price"/>
+                            <field name="avg_day_price"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="customer_contract_win_action" model="ir.actions.act_window">
+        <field name="name">Customer Contract</field>
+        <field name="res_model">customer.contract</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+        <field name="context">{}</field>
+    </record>
+    <menuitem id="main_menu_customer_contract"
+              name="Customer Contract"
+              web_icon="customer_contract,static/description/file-contract-solid.svg"/>
+    <menuitem id="menu_customer_contract"
+              name="Customer Contract"
+              action="customer_contract_win_action"
+    />
+
+
+</odoo>

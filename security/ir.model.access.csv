@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+customer_contract_user_access,Customer Contract User Access,model_customer_contract,customer_contract_user,1,0,0,0
+customer_contract_manager_access,Customer Contract Manager Access,model_customer_contract,customer_contract_manager,1,1,1,1

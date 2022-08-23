@@ -1,0 +1,18 @@
+{
+    'name': 'Customer Contract',
+    'version': '0.0.1',
+    'summary': 'Customer Contract',
+    'description': 'Customer Contract',
+    'category': 'Uncategorized',
+    'author': 'Omar Khaled',
+    'depends': ['base', 'mail'],
+    'data': ['data/res_groups.xml',
+             'data/ir_cron.xml',
+             'views/customer_contract_view.xml',
+             'views/res_partner_view.xml',
+             'views/report_view.xml',
+             'security/ir.model.access.csv',
+             ],
+    'installable': True,
+    'auto_install': False,
+}
